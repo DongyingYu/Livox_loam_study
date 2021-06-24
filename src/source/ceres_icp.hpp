@@ -1,3 +1,13 @@
+/*** 
+ * @file:  ceres_icp.hpp
+ * @author: Dongying (yudong2817@sina.com)
+ * @brief:  用到的几种ceres优化的几种模型,残差项及优化函数的构建
+ * @version:  0.1
+ * @date:  2021/06/22
+ * @copyright: Copyright (c) 2021
+ */
+
+
 // Author: Jiarong Lin          ziv.lin.ljr@gmail.com
 
 #ifndef __ceres_icp_hpp__
@@ -41,6 +51,7 @@ struct ceres_icp_point2point_mb
         m_weigh = 1.0;
     };
 
+    // 残差项的构建
     template <typename T>
     bool operator()( const T *_q, const T *_t, T *residual ) const
     {
@@ -180,6 +191,7 @@ struct ceres_icp_point2plane_mb
         m_unit_vec_ac = target_line_c - target_line_a;
         m_unit_vec_ac = m_unit_vec_ac / m_unit_vec_ac.norm();
 
+        // 两向量的叉积，计算法向量
         m_unit_vec_n = m_unit_vec_ab.cross( m_unit_vec_ac );
         m_weigh = 1.0;
     };

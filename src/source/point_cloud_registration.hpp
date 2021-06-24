@@ -1,7 +1,7 @@
 /***
  * @file:  point_cloud_registration.hpp
  * @author: Dongying (yudong2817@sina.com)
- * @brief:
+ * @brief:  包含当前帧位姿求取、当前点云配准并添加到全局地图中的一些重要函数
  * @version:  0.1
  * @date:  2021/05/07
  * @copyright: Copyright (c) 2021

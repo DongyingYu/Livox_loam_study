@@ -1,3 +1,12 @@
+/*** 
+ * @file:  ceres_pose_graph_3d.hpp
+ * @author: Dongying (yudong2817@sina.com)
+ * @brief:  ceres库中一些关于位姿优化的函数,在此处有用到
+ * @version:  0.1
+ * @date:  2021/06/22 
+ * @copyright: Copyright (c) 2021
+ */
+
 #ifndef __CERES_POSE_GRAPH_3D_HPP__
 #define __CERES_POSE_GRAPH_3D_HPP__
 #include <Eigen/Eigen>

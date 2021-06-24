@@ -1,3 +1,12 @@
+/*** 
+ * @file:  eigen_math.hpp
+ * @author: Dongying (yudong2817@sina.com)
+ * @brief:  矩阵/向量所用到的一些基本运算
+ * @version:  0.1
+ * @date:  2021/06/22
+ * @copyright: Copyright (c) 2021
+ */
+
 // Author: Lin Jiarong          ziv.lin.ljr@gmail.com
 
 #ifndef __EIGEN_MATH_HPP__

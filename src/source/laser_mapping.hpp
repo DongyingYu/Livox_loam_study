@@ -644,6 +644,8 @@ class Laser_mapping
 
     Data_pair *get_data_pair( const double &time_stamp )
     {
+        // 以时间戳为key值存储数据
+        // 迭代器的使用
         std::map<double, Data_pair *>::iterator it = m_map_data_pair.find( time_stamp );
         if ( it == m_map_data_pair.end() )
         {
@@ -1414,6 +1416,7 @@ class Laser_mapping
         kdtree_surf_from_map = m_kdtree_surf_from_map_last;
         m_mutex_buff_for_matching_corner.unlock();
 
+        // 关键函数,得到当前帧再历史坐标系下的全局位姿
         reg_res = pc_reg.find_out_incremental_transfrom( laser_cloud_corner_from_map, laser_cloud_surf_from_map,
                                                          kdtree_corner_from_map, kdtree_surf_from_map,
                                                          laserCloudCornerStack, laserCloudSurfStack );
@@ -1433,6 +1436,7 @@ class Laser_mapping
         pcl::PointCloud<PointType>::Ptr pc_new_feature_surface( new pcl::PointCloud<PointType>() );
         for ( int i = 0; i < laser_corner_pt_num; i++ )
         {
+            // 函数把当前帧的数据对齐到全局坐标系下，并把它们加入到历史地图中，并更新历史地图
             pc_reg.pointAssociateToMap( &laserCloudCornerStack->points[ i ], &pointSel, refine_blur( laserCloudCornerStack->points[ i ].intensity, m_minimum_pt_time_stamp, m_maximum_pt_time_stamp ), g_if_undistore );
             pc_new_feature_corners->push_back( pointSel );
         }
@@ -1454,7 +1458,7 @@ class Laser_mapping
         pc_reg.pointcloudAssociateToMap( current_laser_cloud_full, current_laser_cloud_full, g_if_undistore );
 
         m_mutex_mapping.lock();
-
+        
         if ( m_laser_cloud_corner_history.size() < ( size_t ) m_maximum_history_size ||
              ( t_diff > history_add_t_step ) ||
              ( r_diff > history_add_angle_step * 57.3 ) )

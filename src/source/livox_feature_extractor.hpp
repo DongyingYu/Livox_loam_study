@@ -1,3 +1,12 @@
+/*** 
+ * @file:  livox_feature_extractor.hpp
+ * @author: Dongying (yudong2817@sina.com)
+ * @brief:  雷达特征的提取,计算曲率计算平面角,scans划分等操作
+ * @version:  0.1
+ * @date:  2021/06/22 
+ * @copyright: Copyright (c) 2021
+ */
+
 // This is the Lidar Odometry And Mapping (LOAM) for solid-state lidar (for example: livox lidar),
 // which suffer form motion blur due the continously scan pattern and low range of fov.
 
